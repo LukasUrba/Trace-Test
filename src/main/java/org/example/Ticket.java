@@ -9,10 +9,9 @@ public class Ticket {
     @JsonProperty("issue_description")
     private String issueDescription;
     @JsonProperty("reported_date")
-    private LocalDate reportedDate;
+    private String reportedDate;
     private Priority priority;
     private Contractor contractor;
-    private boolean manualReview;
 
     public Ticket() {}
 
@@ -40,11 +39,27 @@ public class Ticket {
         this.issueDescription = issueDescription;
     }
 
-    public LocalDate getReportedDate() {
+    public String getReportedDate() {
         return reportedDate;
     }
 
-    public void setReportedDate(LocalDate reportedDate) {
+    public void setReportedDate(String reportedDate) {
         this.reportedDate = reportedDate;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public Contractor getContractor() {
+        return contractor;
+    }
+
+    public void setContractor(Contractor contractor) {
+        this.contractor = contractor;
     }
 }
