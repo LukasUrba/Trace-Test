@@ -30,7 +30,7 @@ public class Main {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-        List<Ticket> tickets = mapper.readValue(json, new TypeReference<List<Ticket>>() {});
+        List<Ticket> tickets = mapper.readValue(json, new TypeReference<>() {});
 
         for(Ticket ticket:tickets) {
             Assign<Priority> priorityAssign = new PriorityAssign();
