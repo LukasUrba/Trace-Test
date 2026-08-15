@@ -1,6 +1,5 @@
 package org.example;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDate;
 
 public class Ticket {
     @JsonProperty("ticket_id")
@@ -37,10 +36,6 @@ public class Ticket {
 
     public void setIssueDescription(String issueDescription) {
         this.issueDescription = issueDescription;
-    }
-
-    public String getReportedDate() {
-        return reportedDate;
     }
 
     public void setReportedDate(String reportedDate) {

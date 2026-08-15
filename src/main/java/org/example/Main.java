@@ -1,21 +1,11 @@
 package org.example;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.List;
 
-//TODO make nice menu
-//TODO make input from file choice
-//TODO create program logic
-
-//TODO https://dev.to/sadiul_hakim/jackson-tutorial-comprehensive-guide-with-examples-2gdj
-//https://www.baeldung.com/jackson
-//
-//if leak, gas, dangerous && not no leak not a leak not dangerous, set urgent
-//else if broken, set medium
-//else set low
 public class Main {
     public static void main(String[] args) throws Exception{
-
         String json = """
                 [
                   {
@@ -36,24 +26,22 @@ public class Main {
                  ]
                 """;
 
-        String jsonInput = Parsing.jsonThroughInput();
+//        String jsonInput = Parsing.jsonThroughInput();
 
         ObjectMapper mapper = new ObjectMapper();
-//        Ticket ticket = mapper.readValue(json, Ticket.class);
-
-        List<Ticket> tickets = mapper.readValue(jsonInput, new TypeReference<List<Ticket>>() {});
+        mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+        List<Ticket> tickets = mapper.readValue(json, new TypeReference<List<Ticket>>() {});
 
         for(Ticket ticket:tickets) {
-            Categories.setCategories(ticket);
+            Assign<Priority> priorityAssign = new PriorityAssign();
+            ticket.setPriority(priorityAssign.assign(ticket.getIssueDescription()));
+
+            Assign<Contractor> contractorAssign = new ContractorAssign();
+            ticket.setContractor(contractorAssign.assign(ticket.getIssueDescription()));
+
             Display.displayTicket(ticket);
         }
 
-
     }
-
-
-
-
-
 
 }
