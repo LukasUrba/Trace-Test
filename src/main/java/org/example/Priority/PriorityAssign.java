@@ -1,7 +1,6 @@
 package org.example.Priority;
 
 import org.example.Assign;
-
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +16,7 @@ public class PriorityAssign implements Assign<Priority> {
                 }
             }
         }
+
         return Priority.Medium;
     }
 }
