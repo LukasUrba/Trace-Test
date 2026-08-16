@@ -20,15 +20,18 @@ public class Main {
         List<Ticket> tickets = mapper.readValue(jsonInput, new TypeReference<>() {});
 
         for(Ticket ticket:tickets) {
-            Assign<Priority> priorityAssign = new PriorityAssign();
-            ticket.setPriority(priorityAssign.assign(ticket.getIssueDescription()));
-
-            Assign<Contractor> contractorAssign = new ContractorAssign();
-            ticket.setContractor(contractorAssign.assign(ticket.getIssueDescription()));
-
+            assignFields(ticket);
             Display.displayTicket(ticket);
         }
 
+    }
+
+    public static void assignFields(Ticket ticket) {
+        Assign<Priority> priorityAssign = new PriorityAssign();
+        ticket.setPriority(priorityAssign.assign(ticket.getIssueDescription()));
+
+        Assign<Contractor> contractorAssign = new ContractorAssign();
+        ticket.setContractor(contractorAssign.assign(ticket.getIssueDescription()));
     }
 
 }

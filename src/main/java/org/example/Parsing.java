@@ -31,8 +31,7 @@ public class Parsing {
                 jsonInput.append(currentLine);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File location not found.");
-            throw new RuntimeException(e);
+            throw new RuntimeException("File location not found.",e);
         }
 
         return jsonInput.toString();

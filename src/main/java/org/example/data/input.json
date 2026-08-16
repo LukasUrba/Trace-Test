@@ -5,8 +5,8 @@
                     "issue_description": "There is a massive water leak from the ceiling in the bathroom.",
                     "reported_date": "2026-07-21"  },
                   {
+                    "ticket_id": "TKT-102",
                     "address": "Apt 12, Victoria Court",
-                    "issue_description": "The kitchen lightbulb is flickering and needs replacing.",
                     "reported_date": "2026-07-21"  },
                   {
                     "ticket_id": "TKT-103",
