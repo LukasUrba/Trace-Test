@@ -7,6 +7,8 @@ import java.util.Map;
 public class PriorityAssign implements Assign<Priority> {
     @Override
     public  Priority assign(String issueDescription) {
+        if (issueDescription == null) return Priority.Medium;
+
         String description = issueDescription.toLowerCase();
 
         for (Map.Entry<Priority, List<String>> rule: PriorityRules.getRules().entrySet()) {

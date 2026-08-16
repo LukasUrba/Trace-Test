@@ -15,7 +15,7 @@ public class Main {
         //change Parsing method calls for direct access from file or input without primary menu
         String jsonInput = Parsing.chooseInput();
 
-        ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         List<Ticket> tickets = mapper.readValue(jsonInput, new TypeReference<>() {});
 

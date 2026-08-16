@@ -13,7 +13,7 @@ public class Parsing {
         System.out.println("Please input 1 for file input, and 2 for inline input: (note any other input will close the program)");
         int choice = scannerObj.nextInt();
         if(choice==1) {
-            return jsonThroughFile();
+            return jsonThroughFile("src/main/java/org/example/data/input.json");
         } else if (choice==2) {
             return jsonThroughInput();}
 
@@ -23,8 +23,8 @@ public class Parsing {
         return null;
     }
 
-    public static String jsonThroughFile() {
-        File inputFile = new File("src/main/java/org/example/data/input.json");
+    public static String jsonThroughFile(String filePath) {
+        File inputFile = new File(filePath);
         try (Scanner reader = new Scanner(inputFile)) {
             while (reader.hasNextLine()) {
                 currentLine = reader.nextLine();
