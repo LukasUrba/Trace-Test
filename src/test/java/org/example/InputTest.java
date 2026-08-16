@@ -7,7 +7,6 @@ import org.example.Priority.Priority;
 import org.junit.jupiter.api.Test;
 
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InputTest {
@@ -15,7 +14,7 @@ public class InputTest {
     @Test
     void inputFromFile() {
         String jsonFromFile = assertDoesNotThrow(
-                () -> Parsing.jsonThroughFile("src/main/java/org/example/data/input.json")
+                () -> Parsing.jsonThroughFile("src/test/java/org/example/test-data/input.json")
         );
 
         assertTrue(jsonFromFile.contains("TKT-101"));

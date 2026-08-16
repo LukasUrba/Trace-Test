@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Parsing {
     private static final Scanner scannerObj = new Scanner(System.in);
-    private static final StringBuilder jsonInput = new StringBuilder();
-    private static String currentLine;
 
     public static String chooseInput() {
         System.out.println("Please input 1 for file input, and 2 for inline input: (note any other input will close the program)");
@@ -24,11 +22,12 @@ public class Parsing {
     }
 
     public static String jsonThroughFile(String filePath) {
+        StringBuilder jsonInput = new StringBuilder();
+
         File inputFile = new File(filePath);
         try (Scanner reader = new Scanner(inputFile)) {
             while (reader.hasNextLine()) {
-                currentLine = reader.nextLine();
-                jsonInput.append(currentLine);
+                jsonInput.append(reader.nextLine());
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File location not found.",e);
@@ -37,10 +36,13 @@ public class Parsing {
         return jsonInput.toString();
     }
     public static String jsonThroughInput() {
+
+        StringBuilder jsonInput = new StringBuilder();
+
         System.out.println("Enter input: (note that the input stream will end when an enclosing square bracket is presented ']')");
 
         while (scannerObj.hasNextLine()){
-            currentLine = scannerObj.nextLine();
+            String currentLine = scannerObj.nextLine();
             jsonInput.append(currentLine);
             if(currentLine.contains("]")) break;
         }
