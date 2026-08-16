@@ -1,5 +1,7 @@
 package org.example;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.example.Contractor.Contractor;
+import org.example.Priority.Priority;
 
 public class Ticket {
     @JsonProperty("ticket_id")

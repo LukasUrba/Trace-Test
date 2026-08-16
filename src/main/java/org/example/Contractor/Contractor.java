@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Contractor;
 
 public enum Contractor {
     Electrician,

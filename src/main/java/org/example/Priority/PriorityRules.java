@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Priority;
+
+import org.example.Priority.Priority;
 
 import java.util.List;
 import java.util.Map;

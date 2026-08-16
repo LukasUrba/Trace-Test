@@ -1,24 +1,22 @@
-package org.example;
+package org.example.Priority;
+
+import org.example.Assign;
 
 import java.util.List;
 import java.util.Map;
 
-public class ContractorAssign implements Assign<Contractor>{
+public class PriorityAssign implements Assign<Priority> {
     @Override
-    public Contractor assign(String issueDescription) {
+    public  Priority assign(String issueDescription) {
         String description = issueDescription.toLowerCase();
 
-        for (Map.Entry<Contractor, List<String>> rule
-                : ContractorRules.getRules().entrySet()) {
-
+        for (Map.Entry<Priority, List<String>> rule: PriorityRules.getRules().entrySet()) {
             for (String keyword : rule.getValue()) {
-
                 if (description.contains(keyword)) {
                     return rule.getKey();
                 }
             }
         }
-
-        return Contractor.Maintenance;
+        return Priority.Medium;
     }
 }
